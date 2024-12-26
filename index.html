@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온라인 명함</title>
+    <style>
+        *{margin: 0; padding: 0; /* line-height: 1; */}
+        body{font-family: GmarketSansMedium;}
+        a{color: #333; text-decoration: none;}
+        
+        .wrap{background-image: url(img/background.png); background-repeat : no-repeat; background-size: auto; background-position: 50% 0%; padding-top: 51px;}
+       
+        .face_box{width: 130px; height: 200px; /* border: 1px solid #000; margin: 40px auto 0; */ margin: auto;}
+            .face{width: 130px; height: 130px; /* border: 1px solid red; */ border-radius: 50%; overflow: hidden; display: flex;}
+            .name{margin-top: 25px; font-size: 20px; text-align: center;}
+            .job{margin-top: 5px; font-size: 15px; text-align: center; font-family: GmarketSansLight; color: #fff;}
+        
+
+        .button_box{width: 200px; /* <<이거 왜 167px로 주면 덩달아 박스가 구겨지는거죠!? */ height: 197px; margin: 30px auto 0 auto; /* border: 1px solid #000; */ font-size: 18px; text-align: center;}
+            /* .button_box a{border: 1px solid #000; display: block; width: 135px; height: 38px; text-align: center; line-height: 38px; margin: 0 auto 15px; border-radius: 20px;} */
+            .button_box a{/* border: 1px solid #000; */ padding: 8px 35px; display: inline-block; margin-bottom: 15px; border-radius: 20px;}
+            .red_box{background: #EB3D3D; color: #fff;}
+            .white_box{background: #fff; color: #2C7881;}
+
+            /* 어째서 이 텍스트들은 은근슬쩍 가운데보다 위에 있는 걸까요? 제가 뭘 잘못했죠?! */
+        
+        @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+        @font-face {
+        font-family: 'GmarketSansLight';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+        .map_box{width: 270px; height: 343px; margin: 66px auto 0; /* border: 1px solid #000; */}
+            .map_box .title{font-size: 20px; text-align: center;}
+            .map_box .box{width: 270px; height: 300px; border: 3px solid #EB3D3D; border-radius: 20px; margin-top: 20px; overflow: hidden;}
+        
+        .docbar{width: 390px; height: 65px; background: #FAE3B1; margin: 50px auto 0 auto;}
+            .icon{width: 40px; height: 40px; background: #EB3D3D; border-radius: 50%; float: left; margin-right: 20px; margin: 13px;} /* display-flex가 안먹습니다! 가운데로 정렬하고 싶은데..어쩌죠? 이건 선행학습으로 불가능합니다! */
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="face_box">
+        <div class="face">
+            <img src="img/image.png" alt="snowman">
+        </div>
+        <div class="name">김도희</div>
+        <div class="job">Web designer</div>
+    </div>
+
+    <div class="button_box">
+        <a class="white_box" href="#">전화 문의</a>
+        <a class="red_box" href="#">문자 문의</a>
+        <a class="white_box" href="#">카카오톡 문의</a>
+        <a class="red_box" href="#" style="background: #EB3D3D;">이메일 문의</a>
+    </div> <!-- a태그에 각각 색상 속성 주는 법..이게 최선입니까? 도와주세요! -->
+    
+    <div class="map_box">
+        <div class="title">오시는 길</div>
+        <div class="box">
+            <!-- * 카카오맵 - 지도퍼가기 -->
+            <!-- 1. 지도 노드 -->
+            <div id="daumRoughmapContainer1735030298760" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+            
+            <!--
+                2. 설치 스크립트
+                * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+            -->
+            <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+            
+            <!-- 3. 실행 스크립트 -->
+            <script charset="UTF-8">
+                new daum.roughmap.Lander({
+                    "timestamp" : "1735030298760",
+                    "key" : "2mmcw",
+                    "mapWidth" : "270",
+                    "mapHeight" : "300"
+                }).render();
+            </script></div>
+    </div>
+</div>
+    
+    <div class="docbar">
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+    </div>
+</body>
+</html>
